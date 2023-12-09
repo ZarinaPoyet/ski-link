@@ -25,3 +25,25 @@ cd server
 npm install
 nodemon index.js
 ```
+
+## Teck Stack
+
+**Front end:**
+
+- React.js
+- TypeScript
+- CSS
+- Redux Toolkit
+
+**Back end:**
+
+- Express
+- MongoDB
+- Mongoose
+- Jest
+
+## Collaborators
+
+- Ryan Procaccini - [LinkedIn](https://www.linkedin.com/in/proc015/)
+- Zarina Poyet - [LinkedIn](https://www.linkedin.com/in/zarinapoyet/)
+- Daniel López Bogaz - [LinkedIn](https://www.linkedin.com/in/daniel-lopez-bogaz/)
