@@ -7,7 +7,7 @@ SkiLink is a web app designed to streamline the process of finding and booking s
 **1. Configure environment variables**
 
 - Create a `.env` file in client folder
-- Refer to the `.env.example` file in server folder
+- Refer to the `.env.example` file in client folder
 - Add your configs
 
 **2. Install dependencies and run client**
