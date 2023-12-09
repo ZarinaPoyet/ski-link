@@ -1,6 +1,5 @@
-const { User, Instructor } = require('./../models/model')
+const { User, Instructor } = require('./../models/model');
 const bcrypt = require('bcrypt');
-
 
 exports.postLogin = async (req, res) => {
   const { email, password } = req.body;
@@ -9,10 +8,10 @@ exports.postLogin = async (req, res) => {
     const user = await User.findOne({ email: email }).exec();
 
     if (user) {
-
       const passwordMatch = await bcrypt.compare(password, user.password);
 
-      if (!passwordMatch) return res.status(400).json({ message: "User or Password not found" });
+      if (!passwordMatch)
+        return res.status(400).json({ message: 'User or Password not found' });
 
       if (passwordMatch) {
         res.status(200).json({ message: 'Login successfully' });
@@ -39,27 +38,24 @@ exports.registerUser = async (req, res) => {
       const passwordHashed = await bcrypt.hash(password, 10);
       const user = await User.create({
         email,
-        password: passwordHashed
+        password: passwordHashed,
       });
 
       if (user) {
         res.status(201).json({
           message: 'User registered',
           _id: user._id,
-          email: user.email
+          email: user.email,
         });
       } else {
-        res.status(400).json({ message: 'Invalid user data' })
+        res.status(400).json({ message: 'Invalid user data' });
       }
     }
-
-
   } catch (error) {
     console.error('Error user registration:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
-
-}
+};
 
 exports.instructorLogin = async (req, res) => {
   const { email, password } = req.body;
@@ -68,10 +64,10 @@ exports.instructorLogin = async (req, res) => {
     const user = await Instructor.findOne({ email: email }).exec();
 
     if (user) {
-
       const passwordMatch = await bcrypt.compare(password, user.password);
 
-      if (!passwordMatch) return res.status(400).json({ message: "User or Password not found" });
+      if (!passwordMatch)
+        return res.status(400).json({ message: 'User or Password not found' });
 
       if (passwordMatch) {
         res.status(200).json({ message: 'Login successfully' });
@@ -86,7 +82,6 @@ exports.instructorLogin = async (req, res) => {
   }
 };
 
-
 exports.registerInstructor = async (req, res) => {
   const { email, password } = req.body;
 
@@ -99,24 +94,21 @@ exports.registerInstructor = async (req, res) => {
       const passwordHashed = await bcrypt.hash(password, 10);
       const user = await Instructor.create({
         email,
-        password: passwordHashed
+        password: passwordHashed,
       });
 
       if (user) {
         res.status(201).json({
           message: 'Instructor registered',
           _id: user._id,
-          email: user.email
+          email: user.email,
         });
       } else {
         res.status(400).json({ message: 'Invalid user data' });
       }
     }
-
-
   } catch (error) {
     console.error('Error user registration:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
-
-}
+};

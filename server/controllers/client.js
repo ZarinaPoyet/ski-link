@@ -1,4 +1,4 @@
-const { Lesson } = require("../models/model");
+const { Lesson } = require('../models/model');
 
 exports.getClientLessons = async (req, res) => {
   try {
