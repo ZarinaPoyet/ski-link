@@ -26,7 +26,7 @@ npm install
 nodemon index.js
 ```
 
-## Teck Stack
+## Tech Stack
 
 **Front end:**
 
